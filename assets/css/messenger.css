@@ -1,0 +1,257 @@
+/* ============================================
+   MTSoc Messenger - Основные стили
+   ============================================ */
+
+/* Скроллбар */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #64748b; }
+
+/* Активный чат */
+.active-chat {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+.active-chat p { color: #dbeafe !important; }
+.active-chat .text-slate-500, .active-chat .text-gray-500 { color: #bfdbfe !important; }
+
+/* Выпадающие меню */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    z-index: 50;
+}
+.dropdown-menu.show { display: block; }
+
+/* Вкладки сайдбара */
+.sidebar-tab {
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+.sidebar-tab.active {
+    background-color: #eff6ff;
+    color: #2563eb;
+    border-color: #dbeafe;
+    font-weight: 600;
+}
+
+/* Стили сообщений */
+.message-sent {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: white;
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+.message-received {
+    background: white;
+    color: #374151;
+    border: 1px solid #e5e7eb;
+    border-bottom-left-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.message-deleted {
+    background: #f1f5f9;
+    color: #94a3b8;
+    font-style: italic;
+    border: 1px dashed #cbd5e1;
+}
+
+/* Шапка чата */
+.chat-header-active {
+    background: linear-gradient(90deg, #f8fafc 0%, #ffffff 50%, #f8fafc 100%);
+    border-bottom: 2px solid #3b82f6;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Индикатор печати */
+.typing-indicator {
+    display: none;
+    animation: pulse 2s infinite;
+}
+.typing-indicator.visible { display: flex; }
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* Индикатор онлайн */
+.online-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    animation: ping 1.5s infinite;
+}
+@keyframes ping {
+    0% { transform: scale(1); opacity: 1; }
+    75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+/* Поле ввода */
+.message-input:focus {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    outline: none;
+}
+
+/* Контекстное меню */
+.context-menu {
+    position: fixed;
+    z-index: 1000;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e5e7eb;
+    padding: 8px;
+    min-width: 200px;
+    animation: fadeIn 0.15s ease-out;
+}
+.context-menu-item {
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #374151;
+    transition: background-color 0.15s;
+}
+.context-menu-item:hover { background-color: #f3f4f6; }
+.context-menu-item.danger { color: #ef4444; }
+.context-menu-item.danger:hover { background-color: #fef2f2; }
+.context-menu-divider {
+    border-top: 1px solid #e5e7eb;
+    margin: 4px 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Статус прочтения */
+.read-status {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-left: 8px;
+}
+.read-status.read { color: #3b82f6; }
+
+/* Ответ на сообщение */
+.reply-preview {
+    background: #f1f5f9;
+    border-left: 3px solid #3b82f6;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #64748b;
+}
+.reply-preview .reply-author {
+    font-weight: 600;
+    color: #3b82f6;
+}
+
+/* Загрузка файлов */
+.file-attachment {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+.file-attachment:hover { background: #f1f5f9; }
+.file-attachment-image {
+    max-width: 250px;
+    max-height: 250px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Реакции */
+.reactions-bar {
+    display: flex;
+    gap: 4px;
+    margin-top: 4px;
+    flex-wrap: wrap;
+}
+.reaction-item {
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 2px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+.reaction-item:hover { background: #e2e8f0; }
+.reaction-item.active {
+    background: #dbeafe;
+    border-color: #93c5fd;
+}
+
+/* Модальные окна */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+.modal-content {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalIn 0.2s ease-out;
+}
+@keyframes modalIn {
+    from { opacity: 0; transform: scale(0.9) translateY(-20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Прогресс-бар загрузки */
+.upload-progress {
+    height: 4px;
+    background: #e2e8f0;
+    border-radius: 2px;
+    overflow: hidden;
+}
+.upload-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #2563eb);
+    transition: width 0.3s ease;
+}
+
+/* Уведомления */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    animation: slideIn 0.3s ease-out;
+}
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .sidebar { width: 100% !important; }
+    .chat-area { display: none; }
+    .chat-area.active { display: flex; }
+}
